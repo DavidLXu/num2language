@@ -1,2 +1,2 @@
 # num2language
-change numbers to natural language
+Change numbers to natural languages
