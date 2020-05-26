@@ -308,7 +308,8 @@ def num2en(i):
 
 
 import random
-import time,sys
+import time
+from tkinter import *
 
 def printentry():
 	num = int(var_num.get())
@@ -327,10 +328,9 @@ def quit():
 	var_ch.set("再见!")
 
 	print("执行退出程序")
+	root.destroy()
 
-	
-	#sys.exit()
-from tkinter import *
+
 
 root=Tk()
 root.title("Number to Languages (by DavidLXu)") 
