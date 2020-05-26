@@ -1,5 +1,5 @@
 # arabic numbers to human languages
-# 反向可以用穷举
+# TODO 反向转换，可以用穷举(提取单位，近似寻找)，或者使用NLP的相关算法？
 de_nums = ['null','ein','zwei','drei','vier','fünf','sechs','sieben','acht','neun']
 #de_nums_X = ['null','ein','zwei','drei','vier','fünf','sechs','sieb','acht','neun']
 de_nums_1X = ['zehn','elf','zwölf']
@@ -7,14 +7,17 @@ de_nums_X0 = ['null','zehn','zwanzig','dreißig','vierzig','fünfzig','sechzig',
 de_commas = ['null','tausend','million','milliarde','billion']
 ch_nums = ['零','一','二','三','四','五','六','七','八','九','十']
 
+# 近似对数公式
 def ln(x):
     n = 1000000.0 
     return n * ((x ** (1/n)) - 1)
-
-def log(x,y): #logarithm of y on the base of x
+# logarithm of y on the base of x
+def log(x,y):
     return ln(y)/ln(x)
 
-def num2de_XXX(i): # zero not included
+""" deutsch """
+# zero not included
+def num2de_XXX(i): 
 	text = ''
 	
 	if i//100!=0:
@@ -40,6 +43,7 @@ def num2de_XXX(i): # zero not included
 		else:
 			text += de_nums[i%10]+'und'+de_nums_X0[i//10]
 	return text
+
 def num2de(i):
 	text = ''
 	if i == 0:
@@ -85,7 +89,8 @@ def num2de(i):
 		if comma == 0:
 			text += num2de_XXX(i)
 	return text
-def de2num(text):# 有待优化，从text中读取单位
+# 反转换，有待优化，从text中读取单位，或计算Bleu值等方式比对（有无更好办法？）
+def de2num(text):
 	i = 0
 	while(num2de(i)!=text):
 		i+=1
@@ -93,7 +98,7 @@ def de2num(text):# 有待优化，从text中读取单位
 
 
 
-
+""" 中文 """
 
 ch_nums = ['零','一','二','三','四','五','六','七','八','九','十']
 ch_nums_special = ['〇','一','两','三','四','五','六','七','八','九','十']
@@ -177,6 +182,7 @@ def ch_XXXX(i,special_wan = False,after_wan = False):
 			else:
 				text += ch_nums[i]
 	return text
+
 def ch_XXXXX(i):
 	a = i // 10000
 	b = i % 10000
@@ -186,6 +192,7 @@ def ch_XXXXX(i):
 	else:
 		text+=ch_XXXX(b)
 	return text
+
 def num2ch(i):
 	if i == 0:
 		return "零"
@@ -205,11 +212,13 @@ def num2ch(i):
 		return text
 
 
+""" 英文 """
 
 en_nums = ["zero",'one','two','three','four','five','six','seven','eight','nine','ten']
 en_nums_1X = ['ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen']
 en_nums_X0 = ['zero','ten','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety']
 en_units = ['one','thousand','million','billion','trillion','quadrillion','quintillion']
+
 def en_XX(i):
 	text = ''
 	if 1<=i<10:
@@ -223,6 +232,7 @@ def en_XX(i):
 			text+=en_nums_X0[i//10]
 
 	return text
+
 def en_XXX(i):
 	text = ''
 	if i//100 ==0:
