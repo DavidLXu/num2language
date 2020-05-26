@@ -1,2 +1,3 @@
 # num2language
-Change numbers to natural languages
+Convert numbers to natural languages.
+Currently available: Chinese, German, English.
