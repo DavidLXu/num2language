@@ -9,7 +9,7 @@ Currently available: Chinese, German, English.
 
 neunundneunzigbillionneunhundertneunundneunzigmilliardeneunhundertneunundneunzigmillionneunhundertneunundneunzigtausendneunhundertneunundneunzig.
 
-**English**: 0~99999999999999999999. The largest number is
+**English**: 0~99,999,999,999,999,999,999. The largest number is
 
 ninety-nine quintillion nine hundred and ninety-nine quadrillion nine hundred and ninety-nine trillion nine hundred and ninety-nine billion nine hundred and ninety-nine million nine hundred and ninety-nine thousand nine hundred and ninety-nine.
 
